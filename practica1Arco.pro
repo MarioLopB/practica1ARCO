@@ -11,18 +11,15 @@ CONFIG += c++17
 SOURCES += \
     estudiante.cpp \
     main.cpp \
-    mainwindow.cpp \
     persona.cpp \
     profesor.cpp
 
 HEADERS += \
     estudiante.h \
-    mainwindow.h \
     persona.h \
     profesor.h
 
-FORMS += \
-    mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

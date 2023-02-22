@@ -1,7 +1,3 @@
-#include "mainwindow.h"
-
-#include <QApplication>
-
 #include "persona.h"
 #include "estudiante.h"
 #include "profesor.h"
@@ -12,19 +8,19 @@
 
 using namespace std;
 
-void imprimeProfesor(profesor *profe)
+void imprimeProfesor(profesor profe)
 {
-    cout << profe->getNombre() << " " << profe->getApellido() << " DNI: " << profe->getDNI() << endl;
+    cout << profe.getNombre() << " " << profe.getApellido() << " DNI: " << profe.getDNI() << endl;
 
-    profe->imprimeAlumnos();
+    profe.imprimeAlumnos();
 
-    profe->imprimeMejor();
+    profe.imprimeMejor();
 }
 
 int main()
 {
 
-    vector<profesor*> profesores;
+    vector<profesor> profesores;
 
     profesor *profe1 = new profesor();
 
@@ -32,16 +28,16 @@ int main()
     profe1->setApellido("Martínez Martínez");
     profe1->setDNI(1234567);
 
-    profesores.push_back(profe1);
+    profesores.push_back(*profe1);
 
-    profesores[0]->addAlumno("Diego", "Rivas Rodríguez", 2345678);
+    profesores[0].addAlumno("Diego", "Rivas Rodríguez", 2345678);
 
     float nota1 = 7.5f;
-    profesores[0]->asignarNota(nota1, 2345678);
+    profesores[0].asignarNota(nota1, 2345678);
     float nota2 = 7.0f;
-    profesores[0]->asignarNota(nota2, 2345678);
+    profesores[0].asignarNota(nota2, 2345678);
     float nota3 = 8.9f;
-    profesores[0]->asignarNota(nota3, 2345678);
+    profesores[0].asignarNota(nota3, 2345678);
 
     imprimeProfesor(profesores[0]);
 }

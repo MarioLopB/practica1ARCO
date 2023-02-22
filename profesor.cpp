@@ -25,29 +25,25 @@ void profesor::addAlumno(string nombre, string apellido, int dni){
    alumno->setApellido(apellido);
    alumno->setDNI(dni);
 
-   this->alumnos.push_back(alumno);
+   this->alumnos.push_back(*alumno);
 }
 
-estudiante* profesor::search(int dni){
-    estudiante *current = new estudiante;
-
-    current->getNombre();
-    current->getApellido();
-    current->getDNI();
+estudiante profesor::search(int dni){
+    estudiante *current = new estudiante();
 
     for(auto alumno: this->alumnos){
-        if (alumno->getDNI() == dni){
-            current = alumno;
+        if (alumno.getDNI() == dni){
+            current = &alumno;
             break;
         }
     }
 
-    return current;
+    return *current;
 }
 
 void profesor::asignarNota(float nota, int dni){
     float *mark = &nota;
-    this->search(dni)->getNotas().push_back(mark);
+    this->search(dni).getNotas().push_back(mark);
 }
 
 float profesor::notaMedia(int dni){
@@ -55,7 +51,7 @@ float profesor::notaMedia(int dni){
 
     int num_notas = 0;
 
-    for(auto *nota: this->search(dni)->getNotas()){
+    for(auto *nota: this->search(dni).getNotas()){
         suma = suma + *nota;
     }
 
@@ -65,22 +61,22 @@ float profesor::notaMedia(int dni){
 void profesor::imprimeAlumnos(){
     for(auto alumno: this->alumnos){
         cout << "-------------------------------" << endl;
-        cout << alumno->getNombre() << " " << alumno->getApellido() << " DNI: " << alumno->getDNI() << endl;
+        cout << alumno.getNombre() << " " << alumno.getApellido() << " DNI: " << alumno.getDNI() << endl;
         cout << "Notas: " << endl;
-        alumno->imprimeNotas();
-        cout << "Nota media: " << this->notaMedia(alumno->getDNI()) << endl;
+        alumno.imprimeNotas();
+        cout << "Nota media: " << this->notaMedia(alumno.getDNI()) << endl;
         cout << "-------------------------------" << endl;
     }
 }
 
-estudiante* profesor::mejorEstudiante(){
+estudiante profesor::mejorEstudiante(){
     int max = 0;
     int dni = 0;
 
     for(auto alumno: this->alumnos){
-        if(this->notaMedia(alumno->getDNI()) > max && alumno->getNotas().size() == 3){
-            max = this->notaMedia(alumno->getDNI());
-            dni = alumno->getDNI();
+        if(this->notaMedia(alumno.getDNI()) > max && alumno.getNotas().size() == 3){
+            max = this->notaMedia(alumno.getDNI());
+            dni = alumno.getDNI();
         }
     }
 
@@ -88,13 +84,13 @@ estudiante* profesor::mejorEstudiante(){
 }
 
 void profesor::imprimeMejor(){
-    estudiante *alumno = this->mejorEstudiante();
+    estudiante alumno = this->mejorEstudiante();
 
     cout << "-------------------------------" << endl;
     cout << "Mejor alumno" << endl;
-    cout << alumno->getNombre() << " " << alumno->getApellido() << " DNI: " << alumno->getDNI() << endl;
-    alumno->imprimeNotas();
-    cout << "Nota media: " << this->notaMedia(alumno->getDNI()) << endl;
+    cout << alumno.getNombre() << " " << alumno.getApellido() << " DNI: " << alumno.getDNI() << endl;
+    alumno.imprimeNotas();
+    cout << "Nota media: " << this->notaMedia(alumno.getDNI()) << endl;
     cout << "-------------------------------" << endl;
 }
 

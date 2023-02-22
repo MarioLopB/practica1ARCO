@@ -14,7 +14,7 @@ using namespace std;
 class profesor : public persona
 {
 private:
-    vector<estudiante*> alumnos;
+    vector<estudiante> alumnos;
 
 public:
     profesor();
@@ -25,7 +25,7 @@ public:
 
     void addAlumno(string nombre, string apellido, int dni);
 
-    estudiante* search(int dni);
+    estudiante search(int dni);
 
     void asignarNota(float nota, int dni);
 
@@ -33,7 +33,7 @@ public:
 
     void imprimeAlumnos();
 
-    estudiante* mejorEstudiante();
+    estudiante mejorEstudiante();
 
     void imprimeMejor();
 

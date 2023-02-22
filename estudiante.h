@@ -17,7 +17,11 @@ private:
 public:
     estudiante();
 
-    vector getNotas();
+    estudiante(string nombre, string apellido, int dni);
+
+    ~estudiante(void);
+
+    vector<float> getNotas();
 
     void imprimeNotas();
 };

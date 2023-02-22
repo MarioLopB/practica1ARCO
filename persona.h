@@ -10,6 +10,16 @@ class persona
 public:
     persona();
 
+    persona(string nombre, string apellido, int dni);
+
+    ~persona(void);
+
+    void setNombre(string nombre);
+
+    void setApellido(string apellido);
+
+    void setDNI(int dni);
+
     string getNombre();
 
     string getApellido();

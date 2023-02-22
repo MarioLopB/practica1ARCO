@@ -4,6 +4,11 @@
 
 using namespace std;
 
+persona::persona()
+{
+
+}
+
 persona::persona(string nombre, string apellido, int dni)
 {
     this->nombre = nombre;
@@ -14,14 +19,26 @@ persona::persona(string nombre, string apellido, int dni)
 
 persona::~persona(){}
 
-string getNombre(){
+void persona::setNombre(string nombre){
+    this->nombre = nombre;
+}
+
+void persona::setApellido(string apellido){
+    this->apellido = apellido;
+}
+
+void persona::setDNI(int dni){
+    this->dni = dni;
+}
+
+string persona::getNombre(){
     return this->nombre;
 }
 
-string getApellido(){
+string persona::getApellido(){
     return this->apellido;
 }
 
-int getDNI(){
+int persona::getDNI(){
     return this->dni;
 }

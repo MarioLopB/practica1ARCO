@@ -19,6 +19,10 @@ private:
 public:
     profesor();
 
+    profesor(string nombre, string apellido, int dni);
+
+    ~profesor(void);
+
     void addAlumno(string nombre, string apellido, int dni);
 
     estudiante search(int dni);

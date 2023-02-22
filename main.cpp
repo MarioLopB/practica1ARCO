@@ -36,9 +36,12 @@ int main()
 
     profesores[0]->addAlumno("Diego", "Rivas Rodríguez", 2345678);
 
-    profesores[0]->asignarNota(7.5, 2345678);
-    profesores[0]->asignarNota(7, 2345678);
-    profesores[0]->asignarNota(8.9, 2345678);
+    float nota1 = 7.5f;
+    profesores[0]->asignarNota(nota1, 2345678);
+    float nota2 = 7.0f;
+    profesores[0]->asignarNota(nota2, 2345678);
+    float nota3 = 8.9f;
+    profesores[0]->asignarNota(nota3, 2345678);
 
     imprimeProfesor(profesores[0]);
 }

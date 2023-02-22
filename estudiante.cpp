@@ -1,6 +1,6 @@
 #include "estudiante.h"
 
-#include <list>
+#include <vector>
 
 #include <iostream>
 
@@ -21,9 +21,7 @@ estudiante::~estudiante()
 
 }
 
-list<float> notas;
-
-vector<float> estudiante::getNotas()
+vector<float*> estudiante::getNotas()
 {
     return this->notas;
 }

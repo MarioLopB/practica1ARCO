@@ -12,7 +12,7 @@ using namespace std;
 class estudiante : public persona
 {
 private:
-    vector<float> notas;
+    vector<float*> notas;
 
 public:
     estudiante();
@@ -21,7 +21,7 @@ public:
 
     ~estudiante(void);
 
-    vector<float> getNotas();
+    vector<float*> getNotas();
 
     void imprimeNotas();
 };

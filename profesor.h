@@ -21,11 +21,15 @@ public:
 
     void addAlumno(string nombre, string apellido, int dni);
 
-    void asignarNota();
+    estudiante search(int dni);
 
-    float notaMedia();
+    void asignarNota(float nota, int dni);
+
+    float notaMedia(int dni);
 
     void imprimeAlumnos();
+
+    estudiante mejorEstudiante();
 
     void imprimeMejor();
 

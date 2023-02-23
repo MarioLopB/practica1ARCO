@@ -14,6 +14,10 @@ profesor::profesor()
 profesor::profesor(string nombre, string apellido, int dni)
 {
     persona(nombre, apellido, dni);
+
+    this->not_exist.setNombre(nombre);
+    this->not_exist.setApellido(apellido);
+    this->not_exist.setDNI(dni);
 }
 
 profesor::~profesor(){}
@@ -29,8 +33,6 @@ void profesor::addAlumno(string nombre, string apellido, int dni){
 }
 
 estudiante& profesor::search(int dni){
-    estudiante current("0", "0", -1);
-
     for(auto &alumno: this->alumnos){
         if (alumno.getDNI() == dni){
             return alumno;
@@ -38,7 +40,18 @@ estudiante& profesor::search(int dni){
         }
     }
 
-    return current;
+    return this->not_exist;
+}
+
+int profesor::existEstudiante(int dni){
+    for(auto &alumno: this->alumnos){
+        if (alumno.getDNI() == dni){
+            return 1;
+            break;
+        }
+    }
+
+    return 0;
 }
 
 void profesor::asignarNota(float nota, int dni){
@@ -60,8 +73,8 @@ float profesor::notaMedia(int dni){
 
 void profesor::imprimeAlumno(int dni){
 
+    cout << "-------------------------------" << endl;
     cout << search(dni).getNombre() << " " << search(dni).getApellido() << " DNI: " << search(dni).getDNI() << endl;
-    cout << "Notas: " << endl;
     search(dni).imprimeNotas();
     cout << "Nota media: " << this->notaMedia(search(dni).getDNI()) << endl;
     cout << "-------------------------------" << endl;
@@ -90,6 +103,7 @@ void profesor::imprimeMejor(){
         }
     }
 
+    cout << "-------------------------------" << endl;
     cout << "Mejor alumno:" << endl;
     cout << mejor_alumno->getNombre() << " " << mejor_alumno->getApellido() << " DNI: " << mejor_alumno->getDNI() << endl;
     mejor_alumno->imprimeNotas();

@@ -16,6 +16,8 @@ class profesor : public persona
 private:
     vector<estudiante> alumnos;
 
+    estudiante not_exist;
+
 public:
     profesor();
 
@@ -26,6 +28,8 @@ public:
     void addAlumno(string nombre, string apellido, int dni);
 
     estudiante& search(int dni);
+
+    int existEstudiante(int dni);
 
     void asignarNota(float nota, int dni);
 

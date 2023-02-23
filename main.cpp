@@ -4,6 +4,7 @@
 #include <vector>
 
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -139,34 +140,40 @@ int main()
         cout << endl;
     }
 
-    int dni = -1;
+    int dni;
 
-    while(dni != 0){
+    do{
         cout << "Por favor, introduzca un DNI (número de 8 cifras) sin letra" << endl;
         cout << "Si desea salir de la aplicación introduzca un 0" << endl;
-        dni = cin.get();
-        cout << endl;
+        cin >> dni;
+        cin.ignore(numeric_limits<streamsize>::max(),'\n');
 
         int exist = 0;
 
         if(dni != 0){
             for(auto &profe: profesores){
                 if(profe.getDNI()==dni){
+                    cout << endl;
                     imprimeProfesor(profe);
+                    cout << endl;
                     exist = 1;
                     break;
                 } else if(profe.existEstudiante(dni)==1){
+                    cout << endl;
                     profe.imprimeAlumno(dni);
+                    cout << endl;
                     exist = 1;
                     break;
                 }
             }
 
             if(exist == 0){
+                cout << endl;
                 cout << "El DNI introducido no pertenece a ningun alumno o profesor" << endl;
+                cout << endl;
             }
         }
-    }
+   } while(dni != 0);
 
     return 0;
 }

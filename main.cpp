@@ -40,5 +40,7 @@ int main()
     profesores[0].asignarNota(nota3, 2345678);
 
     imprimeProfesor(profesores[0]);
+
+    profesores[0].imprimeAlumno(2345678);
 }
 

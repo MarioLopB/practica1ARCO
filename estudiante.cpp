@@ -21,7 +21,7 @@ estudiante::~estudiante()
 
 }
 
-vector<float*> estudiante::getNotas()
+vector<float> estudiante::getNotas()
 {
     return this->notas;
 }
@@ -34,6 +34,10 @@ void estudiante::imprimeNotas()
     {
         cout << nota << " ";
     }
+}
+
+void estudiante::setNota(float nota){
+    this->notas.push_back(nota);
 }
 
 

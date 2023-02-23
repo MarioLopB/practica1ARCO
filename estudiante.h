@@ -21,11 +21,9 @@ public:
 
     ~estudiante(void);
 
-    vector<float> getNotas();
+    vector<float>& getNotas();
 
     void imprimeNotas();
-
-    void setNota(float nota);
 };
 
 #endif // ESTUDIANTE_H

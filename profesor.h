@@ -25,6 +25,8 @@ public:
 
     void addAlumno(string nombre, string apellido, int dni);
 
+    estudiante& search(int dni);
+
     void asignarNota(float nota, int dni);
 
     float notaMedia(int dni);

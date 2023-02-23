@@ -21,23 +21,21 @@ estudiante::~estudiante()
 
 }
 
-vector<float> estudiante::getNotas()
+vector<float>& estudiante::getNotas()
 {
     return this->notas;
 }
 
 void estudiante::imprimeNotas()
 {
-    cout << "Notas";
+    cout << "Notas: ";
 
     for(auto nota: this->notas)
     {
-        cout << nota << " ";
+        cout << nota << "   ";
     }
-}
 
-void estudiante::setNota(float nota){
-    this->notas.push_back(nota);
+    cout << endl;
 }
 
 

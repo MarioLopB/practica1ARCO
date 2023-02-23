@@ -10,7 +10,10 @@ using namespace std;
 
 void imprimeProfesor(profesor profe)
 {
+    cout << "PROFESOR:" << endl;
     cout << profe.getNombre() << " " << profe.getApellido() << " DNI: " << profe.getDNI() << endl;
+
+    cout << "-------------------------------" << endl;
 
     profe.imprimeAlumnos();
 
